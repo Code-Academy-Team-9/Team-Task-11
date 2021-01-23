@@ -13,18 +13,19 @@ bool inputValidations(unsigned int height);
 int main(void) {
     int height;
         
-        printf("         Enter your height in cm:\n ");
-        printf("------------------------------------------\n");
+        printf("             Enter your height in cm:\n ");
+        printf("========================================================\n");
         scanf("%d", &height);
         while (height != 0) {
             while (!inputValidations(height)){
                 scanf("%d", &height); 
             }
             heightAnalyze(height);
-            printf("If you want to continue enter height\nor type \"Stop\" to end.\n");
+            printf("If you want to continue enter height\nor type \"Stop\" or \"0\" to end.\n");
             scanf("%d", &height); 
         }
-        printf("Bye!");
+        printf("Bye!\n");
+        printf("--------------------------------------------------------\n");
         
     return 0;
 }
