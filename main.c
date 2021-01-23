@@ -5,7 +5,6 @@
 Над 181 см до 205 см. – висок ръст
 Извън тези граници – изключително висок ръст*/
 #include <stdio.h>
-#include <stdlib.h>
 #include <ctype.h>
 #include <stdbool.h>
 
@@ -17,7 +16,7 @@ int main(void) {
         
         printf("Enter your height in cm: ");
         scanf("%d", &height);
-        while (inputValidations(height) == false){
+        while (!inputValidations(height)){
             scanf("%d", &height); 
         }
         heightAnalyze(height);
@@ -26,8 +25,8 @@ int main(void) {
 }
 
 bool inputValidations(unsigned int height) {
-    if(!isdigit(height)) {
-        printf("Invalid input!\n You can use only numbers for your height!\n");
+    if(height >= 0x41 && height <= 0x7A) {
+        printf("Invalid input!\nYou can use only numbers for your height!\n");
         return false;
     } 
     if(height <= 0) {
@@ -35,6 +34,7 @@ bool inputValidations(unsigned int height) {
         printf("Enter your real height: \n");
         return false;
     }
+    return true;
 }
 
 void heightAnalyze(unsigned int height) {
