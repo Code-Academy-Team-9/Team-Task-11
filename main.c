@@ -11,18 +11,22 @@ void heightAnalyze(unsigned int height);
 bool inputValidations(unsigned int height);
 
 int main(void) {
-    int height;
+    int height=0;
         
-        printf("             Enter your height in cm:\n ");
+        printf("               W  E  L  C  O  M  E\n ");
+        printf("       Enter your height in cm or 0 to exit:\n ");
         printf("========================================================\n");
         scanf("%d", &height);
         while (height != 0) {
+            height=0;
             while (!inputValidations(height)){
                 scanf("%d", &height); 
             }
             heightAnalyze(height);
-            printf("If you want to continue enter height\nor type \"Stop\" or \"0\" to end.\n");
+            printf("If you want to continue enter height\nor type \"0\" to exit.\n");
             scanf("%d", &height); 
+            inputValidations(height);
+        
         }
         printf("Bye!\n");
         printf("--------------------------------------------------------\n");
@@ -35,12 +39,12 @@ bool inputValidations(unsigned int height) {
         printf("Invalid input!\nYou can use only numbers for your height!\n");
         return false;
     } 
-    if(height <= 0) {
-        printf("Nobody is born 0 cm?!\n");
+    if(height <= 5) {
+        printf("Nobody is born less than 5 cm?!\n");
         printf("Enter your real height: \n");
         return false;
     }
-    return true;
+    //return true;
 }
 
 void heightAnalyze(unsigned int height) {
