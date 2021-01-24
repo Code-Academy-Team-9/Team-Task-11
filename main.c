@@ -16,9 +16,10 @@ int main(void) {
         
     printf("             Enter your height in cm:\n ");
     printf("========================================================\n");
-    scanf(" %d", &height);
+    /*scanf(" %d", &height);*/
     
     do {
+        scanf(" %d", &height);
         heightAnalyze(height);
         printf("If you want to continue enter height\nor type \"0\" to end.\n");
         scanf(" %d", &height); 
@@ -33,7 +34,7 @@ int main(void) {
 bool inputValidations(unsigned int height) {
     if(height <= 0) {
         printf("Invalid input!\nEnter your height again!\n");
-        scanf(" %d", &height);
+        /*scanf(" %d", &height);*/
     } 
     return true;
 }
