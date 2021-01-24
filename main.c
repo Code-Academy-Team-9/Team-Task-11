@@ -16,7 +16,6 @@ int main(void) {
     printf("             Enter your height in cm:\n ");
     printf("========================================================\n");
     do {
-        height=0;
         scanf(" %d", &height);
         if(inputValidations(height)){
             heightAnalyze(height);
