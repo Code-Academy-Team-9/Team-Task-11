@@ -6,26 +6,26 @@
 Извън тези граници – изключително висок ръст*/
 #include <stdio.h>
 #include <stdbool.h>
-#include <ctype.h> 
 
 void heightAnalyze(unsigned int height);
 bool inputValidations(unsigned int height);
 
 int main(void) {
     unsigned int height = 0;
-        
+    unsigned char answer = 'n';
     printf("             Enter your height in cm:\n ");
     printf("========================================================\n");
-    /*scanf(" %d", &height);*/
-    
     do {
+        height=0;
         scanf(" %d", &height);
-        heightAnalyze(height);
-        printf("If you want to continue enter height\nor type \"0\" to end.\n");
-        scanf(" %d", &height); 
-    } while (inputValidations(height) > 0);
+        if(inputValidations(height)){
+            heightAnalyze(height);
+        }
+        printf("If you want to continue, please press y, otherwise press \"any button key\":\n");
+        scanf(" %c", &answer); 
+    } while (answer== 'y' || answer == 'Y');
     
-    printf("Bye!\n");
+    printf("Thnx for all the fish. Bye!\n");
     printf("--------------------------------------------------------\n");
         
     return 0;
@@ -33,10 +33,10 @@ int main(void) {
 
 bool inputValidations(unsigned int height) {
     if(height <= 0) {
-        printf("Invalid input!\nEnter your height again!\n");
-        /*scanf(" %d", &height);*/
-    } 
-    return true;
+        printf("Invalid input!\n");
+        return false;
+    } else
+        return true;
 }
 
 void heightAnalyze(unsigned int height) {
