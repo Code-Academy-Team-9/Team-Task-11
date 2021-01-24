@@ -21,7 +21,8 @@ int main(void) {
                 scanf("%d", &height); 
             }
             heightAnalyze(height);
-            printf("If you want to continue enter height\nor type \"0\" to end.\n");
+            height=0;
+            printf("If you want to continue enter height\nor type \"Stop\" \"0\" to end.\n");
             scanf("%d", &height); 
         }
         printf("Bye!\n");
